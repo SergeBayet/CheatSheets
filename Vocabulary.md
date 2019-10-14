@@ -1,5 +1,6 @@
 # Vocabulary list from tutos
 
-| English word | French word  |
-| ------------ | ------------ |
-| To stand out | Se démarquer |
+| English word | French word   |
+| ------------ | ------------- |
+| to stand out | se démarquer  |
+| caveat       | mise en garde |
