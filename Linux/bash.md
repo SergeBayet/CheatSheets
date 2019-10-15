@@ -4,45 +4,45 @@
 
 ## Table des matières
 
-- [ls](#`ls`)
-- [touch](#`touch`)
-- [mkdir](#`mkdir`)
-- [rmdir](#`rmdir`)
-- [cp](#`cp`)
-- [mv](#`mv`)
-- [rm](#`rm`)
-- [ln](#`ln`)
-- [find](#`find`)
-- [whereis](#`whereis`)
-- [which](#`which`)
-- [>](#`>`)
-- [>>](#`>>`)
-- [<](#`<`)
-- [<<](#`<<`)
+- [ls](#ls)
+- [touch](#touch)
+- [mkdir](#mkdir)
+- [rmdir](#rmdir)
+- [cp](#cp)
+- [mv](#mv)
+- [rm](#rm)
+- [ln](#ln)
+- [find](#find)
+- [whereis](#whereis)
+- [which](#which)
+- [>](#>)
+- [>>](#>>)
+- [<](#<)
+- [<<](#<<)
 - [Canaux standards](#Canaux-standards)
-- [exec](#`exec`)
-- [tee](#`tee`)
-- [basename](#`basename`)
-- [dirname](#`dirname`)
-- [grep](#`grep`)
-- [egrep](#`egrep`)
-- [fgrep](#`fgrep`)
-- [sed](#`sed`)
-- [cut](#`cut`)
-- [wc](#`wc`)
-- [sort](#`sort`)
-- [uniq](#`uniq`)
-- [join](#`join`)
-- [paste](#`paste`)
-- [split](#`split`)
-- [tr](#`tr`)
-- [expand](#`expand`)
-- [unexpand](#`unexpand`)
-- [xargs](#`xargs`)
-- [diff](#`diff`)
-- [cmp](#`cmp`)
-- [sleep](#`sleep`)
-- [pv](#`pv`)
+- [exec](#exec)
+- [tee](#tee)
+- [basename](#basename)
+- [dirname](#dirname)
+- [grep](#grep)
+- [egrep](#egrep)
+- [fgrep](#fgrep)
+- [sed](#sed)
+- [cut](#cut)
+- [wc](#wc)
+- [sort](#sort)
+- [uniq](#uniq)
+- [join](#join)
+- [paste](#paste)
+- [split](#split)
+- [tr](#tr)
+- [expand](#expand)
+- [unexpand](#unexpand)
+- [xargs](#xargs)
+- [diff](#diff)
+- [cmp](#cmp)
+- [sleep](#sleep)
+- [pv](#pv)
 
 ## Saisie
 
@@ -60,7 +60,7 @@
 
 ## Fichiers et répertoires
 
-### `ls`
+### ls
 
 Liste les fichiers
 
@@ -77,11 +77,11 @@ Liste les fichiers
 | `-i`       | afficher l'_inode_ du fichier                                                                                         |
 | `-1`       | afficher sur une seule colonne                                                                                        |
 
-### `touch`
+### touch
 
 Créé un fichier vide. Si le fichier existe, met à jour la date de modification du fichier!
 
-### `mkdir`
+### mkdir
 
 Créé un ou plusieurs répertoires, ou une arborescence complète (`-p` _parent_).
 
@@ -94,11 +94,11 @@ vieilleries
 ./Archives/vielleries
 ```
 
-### `rmdir`
+### rmdir
 
 Supprime un ou plusieurs répertoires. Le répertoires doit être vide sinon retour d'erreur.
 
-### `cp`
+### cp
 
 Copie un ou plusieurs fichiers vers un autre fichier ou un autre répertoire.
 
@@ -114,7 +114,7 @@ cp file1 [file2 ... filen] destination
 | -f        | forcer la copie                          |
 | -a        | copie d'archive                          |
 
-### `mv`
+### mv
 
 Déplace, renomme un fichier ou les deux.
 
@@ -123,7 +123,7 @@ $ touch text1
 $ mv text1 text1.old
 ```
 
-### `rm`
+### rm
 
 Supprime un ou plusieurs fichiers, et éventuellement une arborescence. **La suppression est définitive**
 
@@ -135,7 +135,7 @@ Supprime un ou plusieurs fichiers, et éventuellement une arborescence. **La sup
 
 **Attention à la commande :** `sudo rm -rf \` Connue sous le nom **Commande de la mort** : Suppression de toute l'arborescence de votre disque dur.
 
-### `ln`
+### ln
 
 Créé un lien symbolique (fichier contenant un chemin vers un autre fichier)
 
@@ -145,7 +145,7 @@ ln -s fichier lien
 
 Si le fichier pointé par le lien est supprimé, le lien lui, n'est pas supprimé. (par exemple une clé USB, un disque amovible)
 
-### `find`
+### find
 
 `find chemin critères options`
 
@@ -202,7 +202,7 @@ find . -type f -name "*.mp3" -exec rm -f {} \;      // Efface tous les fichiers 
 find . ! -name "*fic*"                              // Trouve les fichiers ne contenant pas 'fic'
 ```
 
-### `whereis`
+### whereis
 
 Recherche dans les chemins de fichiers binaires, du manuel et des sources
 
@@ -211,7 +211,7 @@ $ whereis ls
 ls: /bin/ls /usr/share/man/man1/ls.1.gz
 ```
 
-### `which`
+### which
 
 Recherce une commande dans le PATH et fournit la première qu'elle trouve
 
@@ -224,7 +224,7 @@ $ which ls
 
 Attention que le shell recherche les signes de redirections de droite à gauche.
 
-### `>`
+### >
 
 Redirige vers un fichier
 
@@ -239,7 +239,7 @@ drwxr-xr-x 2 serge serge 4096 oct.  14 10:43 Linux
 -rw-r--r-- 1 serge serge  163 oct.  14 08:20 Vocabulary.md
 ```
 
-### `>>`
+### >>
 
 Ajoute des données en sortie
 
@@ -254,7 +254,7 @@ drwxr-xr-x 2 serge serge 4096 oct.  14 10:43 Linux
 lundi 14 octobre 2019, 10:55:01 (UTC+0200)
 ```
 
-### `<`
+### <
 
 Les commandes qui attendent des données ou des paramètres depuis le clavier peuvent aussi en recevoir depuis un fichier.
 
@@ -263,7 +263,7 @@ $ wc < serge.test
   7  53 332
 ```
 
-### `<<`
+### <<
 
 _Herescript_ ou _Here Document_. Documents en ligne.
 Après le `<<` indiquez une chaîne définissant la fin de la saisie (ici _end_).
@@ -299,7 +299,7 @@ $ ls -l > serge.test 2>&1
 
 La sortie 2 est redirigée vers la sortie 1, donc les messages d'erreurs passeront par la sortie standard.
 
-### `exec`
+### exec
 
 La commande **exec** permet d'ouvrir sept autres canaux numérotés de 3 à 9.
 
@@ -316,7 +316,7 @@ Fermer le canal
 $ exec 5>&-
 ```
 
-### `tee`
+### tee
 
 Duplique un flux de données.
 
@@ -345,7 +345,7 @@ proxy
 
 ## Les filtres
 
-### `basename`
+### basename
 
 Extrait le nom d'un fichier
 
@@ -354,7 +354,7 @@ $ basename Linux/bash.md
 bash.md
 ```
 
-### `dirname`
+### dirname
 
 Extrait le chemin d'un fichier
 
@@ -363,7 +363,7 @@ $ dirname Linux/bash.md
 Linux
 ```
 
-### `grep`
+### grep
 
 Extraire des lignes selon divers critères
 
@@ -421,7 +421,7 @@ alpaga
 âne
 ```
 
-### `egrep`
+### egrep
 
 grep étendu et peut accepter un fichier de critères en entrée. ERE (extented regular expression)
 
@@ -429,11 +429,11 @@ grep étendu et peut accepter un fichier de critères en entrée. ERE (extented 
 
 (pour plus d'informations ; [regex](../Regex.md))
 
-### `fgrep`
+### fgrep
 
 _fast grep_ simplifié et rapide. Pas de caractères spéciaux.
 
-### `sed`
+### sed
 
 _Stream editor_ permettant de filtrer et de transformer du texte.
 
@@ -450,7 +450,7 @@ $ echo "Je m appelle __NOM__. Tu t appelles __NOM__" | sed -e "s/__NOM__/Serge/g
 Je m appelle Serge. Tu t appelles Serge
 ```
 
-### `cut`
+### cut
 
 Sélectionne des colonnes et des champs dans un fichier.
 
@@ -519,7 +519,7 @@ floppy:25
 ...
 ```
 
-### `wc`
+### wc
 
 _Word count_ compte les lignes, les mots et les caractères.
 
@@ -538,7 +538,7 @@ $ wc serge.test
  68  68 697 serge.test
 ```
 
-### `sort`
+### sort
 
 Trie des lignes.
 
@@ -577,7 +577,7 @@ lpadmin:116
 ...
 ```
 
-### `uniq`
+### uniq
 
 Supprime des doublons.
 
@@ -601,7 +601,7 @@ $ sudo cut -d: -f4 /etc/passwd | sort -n | uniq
 ...
 ```
 
-### `join`
+### join
 
 Joint deux fichiers en fonction d'un champ commun.
 
@@ -613,13 +613,13 @@ Joint deux fichiers en fonction d'un champ commun.
 | `-2`       | Champ du deuxième fichier |
 | `-tc`      | délimiteur de champ c     |
 
-### `paste`
+### paste
 
 Regroupe n fichiers en 1 et concatène les lignes de chaque fichier en une seule ligne avec un délimiteur (`-d`).
 
 `paste [-dc] fic1 fic2`
 
-### `split`
+### split
 
 Découpe un gros fichier en plusieurs morceaux d'une taille donnée.
 
@@ -676,7 +676,7 @@ news:9
 ...
 ```
 
-### `tr`
+### tr
 
 _Translate_ : Substitue des caractères à d'autres.
 
@@ -750,15 +750,15 @@ $ /sbin/ifconfig wlp2s0 | grep "inet " | tr -s " " ":" | cut -d: -f3
 192.168.1.48
 ```
 
-### `expand`
+### expand
 
 Convertit les tabultations en espace.
 
-### `unexpand`
+### unexpand
 
 Avec le paramètre `-a` (_all_) convertit toutes les séquences d'au moins deux espaces par le nombre nécessaire de tabulations.
 
-### `xargs`
+### xargs
 
 Permets de lire des éléments en entrée standartd (pipe, redirection) délimités par défaut par un espace ou un retour à la ligne, puis exécute une commande, par défaut `echo`, avec ces même éléments, un par un our formatés.
 
@@ -786,7 +786,7 @@ $ find -name ".mp3" -size +15m | xargs rm -f
 
 ## Comparaison de fichiers
 
-### `diff`
+### diff
 
 Indique les modifications à apporter aux deux fichiers en entrée pour que leur contenu soit identique.
 
@@ -825,7 +825,7 @@ serge@LUDWIG-LINUX:~/www/CheatSheets$ diff serge.test serge2.test
 `a` : append
 `d` : delete
 
-### `cmp`
+### cmp
 
 Compare les fichiers caractère par caractère.
 
@@ -853,7 +853,7 @@ $ cmp -l serge.test serge2.test
 cmp: EOF on serge.test after byte 122
 ```
 
-### `sleep`
+### sleep
 
 Attend le nombre de secondes indiqués.
 
@@ -861,7 +861,7 @@ Attend le nombre de secondes indiqués.
 $ sleep 10
 ```
 
-### `pv`
+### pv
 
 Moniteur de flux.
 
