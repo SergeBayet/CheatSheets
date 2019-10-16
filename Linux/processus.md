@@ -1,15 +1,15 @@
 # Processus
 
-[&](#&)
-[Ctrl-Z](#Ctrl-Z)
-[exec](#exec)
-[fg / bg](#fg-/-bg)
-[jobs](#jobs)
-[kill](#kill)
-[nice et renice](#nice-et-renice)
-[nohup](#nohup)
-[pkill](#pkill)
-[ps](#ps)
+[&](#&)  
+[Ctrl-Z](#Ctrl-Z)  
+[exec](#exec)  
+[fg / bg](#fg-/-bg)  
+[jobs](#jobs)  
+[kill](#kill)  
+[nice et renice](#nice-et-renice)  
+[nohup](#nohup)  
+[pkill](#pkill)  
+[ps](#ps)  
 [time](#time)
 
 ## Définition et environnement
@@ -345,7 +345,7 @@ $ ps | grep ksh
 
 On a remplacé le shell courant par ksh : même PID. Si on quitte ksh, on quitte le shell.
 
-> On peut connaître le PID du shell en affichant le contenu de la variable \\\\$\$
+> On peut connaître le PID du shell en affichant le contenu de la variable \\\\\$\$
 
 ```bash
 $ echo $$
