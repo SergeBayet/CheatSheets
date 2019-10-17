@@ -136,3 +136,37 @@ Relie plusieurs machines entre elles.
 > **Pont ou bridge** : Switch avec seulement deux ports.
 
 ![Exemple de réseau en étoile avec switchs](https://user.oc-static.com/files/264001_265000/264887.jpg)
+
+#### La table CAM
+
+Pour envoyer la trame vers la bonne machine, le switch se sert de l'adresse MAC destination. Il contient une **table CAM** (_Content-Addressable Memory_) qui fait l'assocation entre un port du switch et une adresse MAC.
+
+La table CAM du switch est créée de manière **dynamique**. Quand le switch ne connaît pas le destinataire (l'association n'est pas dans la table CAM), il envoie à toutes les autres machines (ce n'est pas un brodcast, puisque l'adresse de destination n'est pas ff:ff:ff:ff:ff:ff), et la machine qui accepte l'information est rajoutée dans la table avec le port du switch lié.
+
+#### Le TTL de la table CAM
+
+_Time To Live_ (Durée de vie)
+
+Chaque enregistrement de la table contient un champ TTL qui indique la durée de vie de cet enregistrement. À chaque fois que l'enregistrement est utilisé (la machine destination reçoit une information), cette valeur est mise à jour. Lorsque le TTL est dépassé l'enregistrement est supprimé. Cela permet de débrancher des machines, d'en rajouter d'autres tout en gardant une table CAM mise à jour.
+
+Exemple :
+
+| Port | @MAC   | TTL  |
+| ---- | ------ | ---- |
+| 1    | @MAC23 | 90s  |
+| 3    | @MAC25 | 120s |
+
+Le switch a deux enregistrements dans sa table. Le second est plus récent, car son TTL est élevé.  
+Dans 91 secondes, si la machine 23 n'a pas parlé (ni la machine 25), la table CAM sera :
+
+| Port | @MAC   | TTL |
+| ---- | ------ | --- |
+| 3    | @MAC25 | 29s |
+
+La machine 25 envoie une tram, le TTL va être mis à jour.
+
+| Port | @MAC   | TTL  |
+| ---- | ------ | ---- |
+| 3    | @MAC25 | 120s |
+
+Ainsi, la table CAM du switch se remplira ou se mettra à jour **après chaque réception d'une trame**, et elle se videra quand elle n'aura pas reçu de trame depuis longtemps.
